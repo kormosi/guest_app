@@ -12,23 +12,40 @@
   </head>
 
   <!-- TODO: toto dat do static -->
-  <body style='background-color:#3c454d'>
+  <body style='background-color:#437199'>
 
-    <nav class="navbar navbar-dark bg-dark">
-      <a class="navbar-brand" href="#">
-        <img src="https://i.postimg.cc/qRqZCNzZ/logo.png"  height="30" alt="">
-      </a>
-        <button type="button" class="btn btn-primary">Export to PDF</button>
-    </nav>
+      <nav class="navbar navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">
+          <img src="https://i.postimg.cc/qRqZCNzZ/logo.png"  height="30" alt="">
+        </a>
+          <button type="button" class="btn btn-primary">Export to PDF</button>
+      </nav>
 
-    {% for guest in guests %}
-      <h3>{{ guest.firstname }}</h3>
-      <h3>{{ guest.lastname }}</h3>
-      <h3>{{ guest.base64 }}</h3>
-    {% endfor %}
+    <div class="container">
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+      <table class="table table-striped table-dark mt-3">
+        <thead>
+          <tr>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Base64</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for guest in guests %}
+            <tr>
+              <td>{{ guest.firstname }}</td>
+              <td>{{ guest.lastname }}</td>
+              <td>{{ guest.base64 }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+
+    </div>
+
+      <!-- Optional JavaScript -->
+      <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
