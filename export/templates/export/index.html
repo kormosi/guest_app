@@ -30,7 +30,7 @@
           <tr>
             <th scope="col">First Name</th>
             <th scope="col">Last Name</th>
-            <th scope="col">Base64</th>
+            <th scope="col">Base64 Image</th>
           </tr>
         </thead>
         <tbody>
@@ -38,7 +38,7 @@
             <tr>
               <td>{{ guest.first_name }}</td>
               <td>{{ guest.last_name }}</td>
-              <td>{{ guest.base64_image }}</td>
+              <td><img class="b64_image" src="data:image/jpeg;base64,{{ guest.base64_image }}"></td>
             </tr>
           {% endfor %}
         </tbody>

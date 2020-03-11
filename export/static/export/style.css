@@ -11,3 +11,7 @@ body {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+.b64_image{
+  max-height: 3em;
+}
