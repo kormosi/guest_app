@@ -22,6 +22,6 @@ class Command(BaseCommand):
         self.stdout.write("This can take up to several minutes.")
 
         for i in range(amount):
-          self.stdout.write(i)
+          self.stdout.write(str(i))
           guest = Guest(first_name=f"{randomword(7)}", last_name=f"{randomword(10)}", base64_image=image)
           guest.save()
