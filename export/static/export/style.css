@@ -2,16 +2,6 @@ body {
   background-color: #3e5263;
 }
 
-.table {
-  table-layout:fixed;
-}
-
-.table td {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
 .b64_image{
-  max-height: 3em;
+  max-height: 2em;
 }

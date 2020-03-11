@@ -17,10 +17,15 @@
   <body>
 
       <nav class="navbar navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="{% url 'export-home' %}">
           <img src="{% static 'export/logo.png' %}"  height="30" alt="">
         </a>
-          <button type="button" class="btn btn-primary">Export to PDF</button>
+
+        <form method="post" action="{% url 'export-weasy' %}">
+          {% csrf_token %}
+          <button class="btn btn-primary">Export to PDF</button>
+        </form>
+
       </nav>
 
     <div class="container">
