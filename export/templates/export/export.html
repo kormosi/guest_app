@@ -1,10 +1,7 @@
-{% load static %}
-
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="{% static 'export/export.css' %}">
     <title>PDF Table</title>
   </head>
   <body>
@@ -33,28 +30,38 @@
     </div>
 
   </body>
-<!--
-  <style> /* use CSS into style */
+
+  <style>
+
       @page {
         size: A4; /* Change from the default size of A4 */
         margin: 3.5mm; /* Set margin on each page */
+      }
+
+      body{
+        font-family: sans-serif;
       }
 
       table {
         border-collapse: collapse;
         margin: 0 auto;
         width: 18cm;
-        margin-right: 2cm;
+        table-layout: fixed;
       }
 
       th, td {
-        border: 1px solid black;
+        border-bottom: 1px solid #ddd;
+        text-align: left;
+        width: 33%;
+        overflow: hidden;
       }
 
       .b64_image{
         max-height: 3em;
+        padding-top: 0.5em;
       }
-  </style> -->
+
+  </style>
 
 
 </html>
