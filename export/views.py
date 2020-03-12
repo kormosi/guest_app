@@ -12,7 +12,7 @@ def home(request):
     if request.method == 'POST' and 'export_to_pdf' in request.POST:
 
         # Model data.
-        guests = Guest.objects.all()[:50]
+        guests = Guest.objects.all()
 
         # Rendering HTML.
         html_string = render_to_string('export/export.html', {'guests': guests})
