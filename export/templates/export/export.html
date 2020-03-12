@@ -1,0 +1,60 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="{% static 'export/export.css' %}">
+    <title>PDF Table</title>
+  </head>
+  <body>
+
+    <div class="container">
+
+      <table>
+        <thead>
+          <tr>
+            <th >First Name</th>
+            <th >Last Name</th>
+            <th >Base64 Image</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for guest in guests %}
+            <tr>
+              <td>{{ guest.first_name }}</td>
+              <td>{{ guest.last_name }}</td>
+              <td><img class="b64_image" src="data:image/jpeg;base64,{{ guest.base64_image }}"></td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+
+    </div>
+
+  </body>
+<!--
+  <style> /* use CSS into style */
+      @page {
+        size: A4; /* Change from the default size of A4 */
+        margin: 3.5mm; /* Set margin on each page */
+      }
+
+      table {
+        border-collapse: collapse;
+        margin: 0 auto;
+        width: 18cm;
+        margin-right: 2cm;
+      }
+
+      th, td {
+        border: 1px solid black;
+      }
+
+      .b64_image{
+        max-height: 3em;
+      }
+  </style> -->
+
+
+</html>
