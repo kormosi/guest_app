@@ -6,4 +6,7 @@ class Guest(models.Model):
     base64_image = models.TextField()
 
     def __str__(self):
-        return str(self.first_name + " " + self.last_name)
+        return f'{self.first_name} {self.last_name}'
+
+    def __repr__(self):
+        return f'First Name: {self.first_name} Last Name: {self.last_name}'
