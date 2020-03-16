@@ -1,11 +1,8 @@
-from django.shortcuts import render, redirect
-from django.contrib import messages
+from django.shortcuts import render
 from django.http import HttpResponse
 from django.template.loader import render_to_string
 from .models import Guest
 from weasyprint import HTML
-import tempfile
-
 
 def home(request):
 
@@ -16,19 +13,11 @@ def home(request):
 
         # Rendering HTML.
         html_string = render_to_string('export/export.html', {'guests': guests})
-        html = HTML(string=html_string)
-        rendered_result = html.write_pdf()
 
-        # Creating HTTP response.
+        # Creating HTTP PDF response.
         response = HttpResponse(content_type='application/pdf;')
         response['Content-Disposition'] = 'attachment; filename=guests.pdf'
-
-        # Writing rendered result into temporary file and serving it to user.
-        with tempfile.NamedTemporaryFile(delete=True) as file:
-            file.write(rendered_result)
-            file.flush()
-            file = open(file.name, 'rb')
-            response.write(file.read())
+        HTML(string=html_string).write_pdf(response)
 
         return response
 
