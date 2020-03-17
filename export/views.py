@@ -6,7 +6,7 @@ from weasyprint import HTML
 
 def home(request):
 
-    if request.method == 'POST' and 'export_to_pdf' in request.POST:
+    if request.method == 'POST':
 
         # Model data.
         guests = Guest.objects.all()
@@ -15,7 +15,7 @@ def home(request):
         html_string = render_to_string('export/export.html', {'guests': guests})
 
         # Creating HTTP PDF response.
-        response = HttpResponse(content_type='application/pdf;')
+        response = HttpResponse(content_type='application/pdf')
         response['Content-Disposition'] = 'attachment; filename=guests.pdf'
         HTML(string=html_string).write_pdf(response)
 
